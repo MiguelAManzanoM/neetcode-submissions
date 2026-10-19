@@ -1,0 +1,19 @@
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length;
+        
+        while (l < r) {
+            // Previene el Integer Overflow en lenguajes de tipado estático
+            int m = l + (r - l) / 2;
+            
+            if (nums[m] < target) {
+                l = m + 1;
+            } else {
+                r = m;
+            }
+        }
+        
+        return l;
+    }
+}
